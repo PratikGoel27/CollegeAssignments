@@ -1,7 +1,5 @@
 package Assign_2.Part2.Q4;
 
-import Assign_2.Part2.Q1.Pair;
-
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Objects;
@@ -22,26 +20,6 @@ public class Student {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public int getMarks() {
-        return marks;
-    }
-
-    public void setMarks(int marks) {
-        this.marks = marks;
-    }
-
     public String toString() {
         return name+"--"+age+"--"+marks;
     }
@@ -52,17 +30,6 @@ public class Student {
         Student student = (Student) o;
         return age == student.age && marks == student.marks && Objects.equals(name, student.name);
     }
-//
-//    public static boolean isPresentInList(Student obj, LinkedList<Student> ll){
-//        Iterator<Student> itr = ll.iterator();
-//        while(itr.hasNext()) {
-//            Student s1 = itr.next();
-//            if(s1.equals(obj)) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -71,35 +38,40 @@ public class Student {
         ll.add(new Student("Rohan",9,82));
         ll.add(new Student("Shekhar",29,85));
         System.out.println(ll);
-//        System.out.println("Enter a Student's Details:-");
-//        String name = sc.next();
-//        int age = sc.nextInt();
-//        int marks = sc.nextInt();
-//        Student s1 = new Student(name,age,marks);
-//        System.out.println(ll.contains(s1));
 
+        //Checking the existence:-
+        System.out.println("Enter a Student's Details:-");
+        String name = sc.next();
+        int age = sc.nextInt();
+        int marks = sc.nextInt();
+        Student s1 = new Student(name,age,marks);
+        System.out.println("Searching based on content:- "+ll.contains(s1));
 
-//        System.out.println("Enter the Student name which is to be removed from the list: ");
-//        String str = sc.next();
-//        boolean ans = false;
-//        Iterator<Student> itr = ll.iterator();
-//        while(itr.hasNext()) {
-//            Student s = itr.next();
-//            if(s.getName().equals(str)) {
-//                itr.remove();
-//                ans = true;
-//                break;
-//            }
-//        }
-//        if(ans)
-//            System.out.println("Removed the student");
-//        else
-//            System.out.println("The specified student is not in the list");
-//        System.out.println(ll);
-//        System.out.println(ll.size());
+        //Remove a specified class from the list:-
+        System.out.println("Enter the Student name which is to be removed from the list: ");
+        String str = sc.next();
+        boolean ans = false;
+        Iterator<Student> itr = ll.iterator();
+        while(itr.hasNext()) {
+            Student s = itr.next();
+            if(s.getName().equals(str)) {
+                itr.remove();
+                ans = true;
+                break;
+            }
+        }
+        if(ans)
+            System.out.println("Removed the Student from the list");
+        else
+            System.out.println("The specified student is not in the list");
+        System.out.println(ll);
 
-        Student s1 = new Student("Ankush",20,90);
+        //Count No. of Student objects:-
+        System.out.println("No. of Students in the list:- "+ll.size());
+
+        //Overriding equals methods for content comparison:-
         Student s2 = new Student("Ankush",20,90);
-        System.out.println(s1.equals(s2));
+        Student s3 = new Student("Ankush",20,90);
+        System.out.println("Are both the given objects equal:- "+s2.equals(s3));
     }
 }

@@ -13,10 +13,6 @@ public class Pair<K,V> {
         return key;
     }
 
-    public void setKey(int key) {
-        this.key = key;
-    }
-
     public String getValue() {
         return value;
     }

@@ -1,6 +1,6 @@
 package Assign_2.Part2.Q2;
 
-public class User implements Comparable {
+public class User implements Comparable<User> {
     private String name;
     private int age;
 
@@ -29,14 +29,13 @@ public class User implements Comparable {
         return name+"--"+age;
     }
 
-    public int compareTo(Object obj) {
+    public int compareTo(User obj) {
         int a = this.getAge();
-        User u = (User)obj;
-        int b = ((User) obj).getAge();
+        int b = obj.getAge();
         if(a < b) {
-            return +1;
-        }else if(a > b) {
             return -1;
+        }else if(a > b) {
+            return +1;
         }else {
             return 0;
         }
